@@ -1,3 +1,3 @@
-class Server
+class Chitter < Sinatra::Base
 
 end
