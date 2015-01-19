@@ -19,8 +19,10 @@ describe Post do
   end
 
   scenario 'a user has no posts when they first sign up' do
-    user = User.new
+    sign_up
+    user = User.first
     expect(user.post_count).to eq(0)
+    expect(user.peeps.length).to eq(0)
   end
 
   scenario 'a user can put up a post' do

@@ -20,6 +20,9 @@ require 'capybara/rspec'
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+Capybara.app = Chitter
+
+
 RSpec.configure do |config|
 
   config.before(:suite) do
