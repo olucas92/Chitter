@@ -2,7 +2,7 @@ class Post
 
   include DataMapper::Resource
 
-  property :id, Serial
+  property :title, Serial
   property :text, String
 
 end
