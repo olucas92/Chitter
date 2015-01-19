@@ -18,4 +18,10 @@ describe Post do
 
   end
 
+  scenario 'a user has no posts when they first sign up' do
+  end
+
+  scenario 'a user can put up a post' do
+  end
+
 end
