@@ -4,8 +4,8 @@ class User
 
   property :id, Serial
   property :email, String, unique: true
-  property :username, String, unique: true, else raise message: 'Sorry, that username is already taken'
-  property :display_name, String, unique: true, else raise message: 'Sorry, that display name is taken'
+  property :username, String, unique: true, message: 'Sorry, that username is already taken'
+  property :display_name, String, unique: true, message: 'Sorry, that display name is taken'
   property :password_digest, Text
 
   has n, :post

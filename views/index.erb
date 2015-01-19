@@ -1,1 +1,8 @@
-<a href="/sign_up">Sign Up</a>
+<!-- <a href="/sign_up">Sign Up</a> -->
+
+<ul>
+  <% @post.each do |post| %>
+    <li><a href="<%= post.id%>"><%= post.text %></a></li>
+  <% end %>
+</ul>
+  
