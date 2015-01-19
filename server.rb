@@ -19,6 +19,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/post' do
+    title = params["title"]
+    text = params["text"]
+    Post.create(:title => title, :text => text)
+    redirect to('/')
+  end
+
 
 end
 

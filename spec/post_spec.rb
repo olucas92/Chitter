@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'post'
 
 describe Post do
 
@@ -6,7 +7,7 @@ describe Post do
 
     it 'should be created and then retrieved from the database' do
       expect(Post.count).to eq(0)
-      Post.create(id: '1234',
+      Post.create(title: '1234',
                    text: 'Hello')
       expect(Post.count).to eq(1)
       post = Post.first
@@ -21,8 +22,8 @@ describe Post do
   scenario 'a user has no posts when they first sign up' do
     sign_up
     user = User.first
-    expect(user.post_count).to eq(0)
-    expect(user.peeps.length).to eq(0)
+    expect(user.Post.count).to eq(0)
+    expect(user.Post.length).to eq(0)
   end
 
   scenario 'a user can put up a post' do
