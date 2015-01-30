@@ -8,4 +8,13 @@ feature 'User signs up' do
     expect(User.first.email).to eq("bob@bob.com")
   end
 
+  def sign_up(email = "test@test.com",
+              password = "test")
+    visit '/users/new'
+    expect(page.status_code).to eq(200)
+    fill_in :email, :with => email
+    fill_in :password, :with => password
+    click_button "Sign up"
+  end
+
 end

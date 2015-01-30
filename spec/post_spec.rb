@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'post'
 
-describe Post do
+feature Post do
 
   context 'Demonstration of how datamapper works' do
 
@@ -11,7 +11,6 @@ describe Post do
                    text: 'Hello')
       expect(Post.count).to eq(1)
       post = Post.first
-      expect(post.id).to eq(1234)
       expect(post.text).to eq('Hello')
       post.destroy
       expect(Post.count).to eq(0)
@@ -22,9 +21,17 @@ describe Post do
   scenario 'a user has no posts when they first sign up' do
     sign_up
     user = User.first
-    expect(user.Post.count).to eq(0)
-    expect(user.Post.length).to eq(0)
+    expect(user.post.count).to eq(0)
   end
+
+  def sign_up
+    visit '/user/new'
+    fill_in 'password', with: "1234"
+    fill_in 'password_confirmation', with: "1234"
+    fill_in 'email', with: "bob@bob.com"
+    click_button 'Sign up'
+  end
+
 
   scenario 'a user can put up a post' do
   end

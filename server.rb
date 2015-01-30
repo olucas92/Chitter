@@ -22,8 +22,18 @@ class Chitter < Sinatra::Base
   post '/post' do
     title = params["title"]
     text = params["text"]
-    Post.create(:title => title, :text => text)
+    post = Post.create(:title => title, :text => text)
     redirect to('/')
+  end
+
+  get '/user/new' do
+    erb :"user/new"
+  end
+
+  post '/user' do
+    puts "^" * 100
+    puts params
+    User.create
   end
 
 
