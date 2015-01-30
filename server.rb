@@ -14,6 +14,9 @@ class Chitter < Sinatra::Base
   DataMapper.finalize
   DataMapper.auto_upgrade!
 
+  enable :sessions
+  set :session_secret, 'super secret'
+
   get '/' do
     @post = Post.all
     erb :index
@@ -33,7 +36,9 @@ class Chitter < Sinatra::Base
   post '/user' do
     puts "^" * 100
     puts params
-    User.create
+    User.create(:email => params[:email],
+                :password => params[:password])
+    redirect to('/')
   end
 
 
