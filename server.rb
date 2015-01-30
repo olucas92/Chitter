@@ -38,6 +38,7 @@ class Chitter < Sinatra::Base
     puts params
     User.create(:email => params[:email],
                 :password => params[:password])
+    session[:user_id] = user.id
     redirect to('/')
   end
 
