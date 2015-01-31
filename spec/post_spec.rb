@@ -21,7 +21,7 @@ feature Post do
   scenario 'a user has no posts when they first sign up' do
     sign_up
     user = User.first
-    expect(user.post.count).to eq(0)
+    expect(user.post_count).to eq(0)
   end
 
   def sign_up
