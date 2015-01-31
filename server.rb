@@ -42,6 +42,10 @@ class Chitter < Sinatra::Base
     redirect to('/')
   end
 
+  get '/sessions/new' do
+    erb :'/sessions'
+  end
+
   helpers do
 
     def current_user
